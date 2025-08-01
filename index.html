@@ -1,221 +1,347 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bİ KAFE MENÜ LİSTESİ</title>
-<style>
-  /* Genel ayarlar */
-  body {
-    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #b89b6b;
-    margin: 0; 
-    padding: 30px 20px;
-    color: #333;
-  }
-
-  h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #222;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-  }
-
-  /* Butonlar */
-  .buttons {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  .buttons button {
-    background: #b89b6b; /* morumsu mavi */
-    border: none;
-    color: white;
-    padding: 14px 28px;
-    margin: 8px 10px;
-    border-radius: 35px;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    box-shadow: 0 6px 15px rgba(90,103,216,0.3);
-    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-    user-select: none;
-  }
-  .buttons button:hover {
-    background: black;
-    box-shadow: 0 8px 20px rgba(67,74,168,0.5);
-    transform: translateY(-3px);
-  }
-  .buttons button.active {
-    background: black;
-    box-shadow: 0 10px 30px rgba(44,47,120,0.7);
-    transform: translateY(-2px);
-  }
-
-  
-  /* Menü alanı */
-  .menu {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(270px,1fr));
-    gap: 25px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  /* Menü öğeleri */
-  .item {
-    background: #e9e4dc;
-    border-radius: 20px;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: default;
-  }
-  .item:hover {
-    transform: translateY(-10px) scale(1.04);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-  }
-
-  .item img {
-    width: 160px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 15px;
-    margin-bottom: 15px;
-    border: 3px solid black;
-    box-shadow: 0 4px 10px rgba(90,103,216,0.25);
-  }
-
-  .item h3 {
-    margin: 0 0 10px 0;
-    font-weight: 900;
-    font-size: 1.3rem;
-    color: #2d3748;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-  }
-
-  .item p {
-    margin: 0;
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: #4a5568;
-    background: #e2e8f0;
-    padding: 6px 15px;
-    border-radius: 30px;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
-    user-select: none;
-  }
-
-  /* Responsive */
-  @media(max-width: 480px) {
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bİ KAFE MENÜ LİSTESİ</title>
+  <style>
+    body {
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #b89b6b;
+      margin: 0;
+      padding: 30px 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #222;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+    .buttons {
+      text-align: center;
+      margin-bottom: 30px;
+    }
     .buttons button {
-      padding: 12px 20px;
-      font-size: 0.9rem;
-      margin: 6px 8px;
+      background: #b89b6b;
+      border: none;
+      color: white;
+      padding: 14px 28px;
+      margin: 8px 10px;
+      border-radius: 35px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(90,103,216,0.3);
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+    }
+    .buttons button:hover { background: black; box-shadow: 0 8px 20px rgba(67,74,168,0.5); transform: translateY(-3px); }
+    .buttons button.active {
+      background: black;
+      box-shadow: 0 10px 30px rgba(44,47,120,0.7);
+      transform: translateY(-2px);
+    }
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(270px,1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .item {
+      background: #e9e4dc;
+      border-radius: 20px;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .item:hover {
+      transform: translateY(-10px) scale(1.04);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
     }
     .item img {
-      width: 130px;
-      height: 130px;
+      width: 160px; height: 160px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      border: 3px solid black;
+      box-shadow: 0 4px 10px rgba(90,103,216,0.25);
     }
     .item h3 {
-      font-size: 1.1rem;
+      margin: 0 0 10px 0;
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: #2d3748;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
     }
     .item p {
-      font-size: 1rem;
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #4a5568;
+      background: #e2e8f0;
+      padding: 6px 15px;
+      border-radius: 30px;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+      user-select: none;
     }
-  }
-</style>
+    .add-to-order {
+      margin-top: 15px;
+      background-color: #28a745;
+      border: none;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+    }
+    .add-to-order:hover { background-color: #218838; }
+    #order-toggle {
+      position: fixed; bottom: 15px; right: 15px;
+      background: #28a745; color: white; border: none;
+      border-radius: 50%; width: 60px; height: 60px;
+      font-size: 28px; cursor: pointer;
+    }
+    #order-panel {
+      display: none; position: fixed;
+      bottom: 90px; right: 15px;
+      background: white; border: 1px solid #ccc;
+      padding: 15px; width: 300px; max-height: 400px;
+      overflow-y: auto; border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+    #order-panel h3 { margin-top: 0; margin-bottom: 10px; }
+    .product-item {
+      margin: 5px 0;
+      display: flex; justify-content: space-between;
+      font-weight: 600; font-size: 1rem;
+      align-items: center;
+    }
+    .product-item button {
+      background: #dc3545;
+      border: none;
+      color: white;
+      border-radius: 15px;
+      padding: 2px 8px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-left: 10px;
+      transition: background-color 0.3s ease;
+    }
+    .product-item button:hover {
+      background: #b02a37;
+    }
+    @media(max-width:480px) {
+      .buttons button { padding:12px 20px; font-size:0.9rem; margin:6px 8px; }
+      .item img { width:130px; height:130px; }
+      .item h3 { font-size:1.1rem; }
+      .item p { font-size:1rem; }
+    }
+  </style>
 </head>
 <body>
-<img src="https://i.hizliresim.com/7r824mz.png" alt="Logo" style="max-width: 150px; display: block; margin: 0 auto 20px;">
-<h1 style="color: white;">Bİ KAFE Menü Listesi</h1>
+  <img src="https://i.hizliresim.com/7r824mz.png" alt="Logo" style="max-width:150px;display:block;margin:0 auto 20px;">
+  <h1 style="color:white;">Bİ KAFE Menü Listesi</h1>
 
-<div class="buttons">
-  <button class="filter-btn active" data-category="all">Tüm Ürünler</button>
-  <button class="filter-btn" data-category="sıcak-icecekler">Sıcak İçecekler</button>
-  <button class="filter-btn" data-category="soguk-icecek">Soğuk İçecekler</button>
-  <button class="filter-btn" data-category="tatlı">Tatlılar</button>
+  <div class="buttons">
+    <button class="filter-btn active" data-category="all">Tüm Ürünler</button>
+    <button class="filter-btn" data-category="sıcak-icecekler">Sıcak İçecekler</button>
+    <button class="filter-btn" data-category="soguk-icecekler">Soğuk İçecekler</button>
+    <button class="filter-btn" data-category="tatlı">Tatlılar</button>
+  </div>
 
-</div>
+  <div class="menu" id="menu"></div>
+  
+  <button id="order-toggle" title="Sepeti Göster/Gizle">🛒</button>
+  
+  <div id="order-panel">
+    <h3>Sipariş Listesi</h3>
+    <div id="order-list">Sepet boş.</div>
+    <hr style="margin:10px 0;">
+    <div style="font-weight:bold; text-align:right;">
+      Toplam Fiyat: <span id="toplam-fiyat">0</span>₺
+    </div>
 
-<div class="menu" id="menu">
-    <!-- AŞAĞIDAKİ VERİLER BURAYA GELİYOR YENİ BİR ÜRÜN EKLEME YAPTIĞIMIZDA menuData içerisine ekleme yapacağız aynı şekilde -->
-</div>
+    <label for="masa-secimi" style="display:block; margin-top:10px;">Masa Seçiniz:</label>
+    <select id="masa-secimi" style="width:100%; padding:6px; border-radius:6px;">
+      <option value="">-- Masa Seçin --</option>
+      <option value="Masa 1">Masa 1</option>
+      <option value="Masa 2">Masa 2</option>
+      <option value="Masa 3">Masa 3</option>
+      <option value="Masa 4">Masa 4</option>
+    </select>
+    
+    <div style="margin-top:15px;text-align:center;">
+      <button id="clear-order" style="background:#dc3545;color:white;padding:8px 15px;border:none;border-radius:25px;cursor:pointer;font-weight:700;">Temizle</button>
+      <button id="place-order" style="background:#007bff;color:white;padding:8px 15px;border:none;border-radius:25px;cursor:pointer;font-weight:700;margin-left:10px;">Sipariş Ver</button>
+    </div>
+  </div>
 
-<script>
-  const menuData = [
-    { id: 1, name: "ESPRESSO", price: "60-80", category: "sıcak-icecekler", img: "https://images.deliveryhero.io/image/fd-tr/Products/72760018.jpg??width=400" },
-    { id: 2, name: "AMERİCANO", price: "60-80", category: "sıcak-icecekler", img: "https://images.deliveryhero.io/image/fd-tr/Products/72760021.jpg??width=400" },
-    { id: 3, name: "LATTE - VE DİĞERLERİ", price: "60-80", category: "sıcak-icecekler", img: "https://images.deliveryhero.io/image/fd-tr/Products/72760025.jpg??width=400" },
-    { id: 4, name: "LİMONATA", price: "50", category: "sıcak-icecekler", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRmsgLJB43j9x9WSzlbhmtTZwZqbaPWBSo4Q&s" },
-    { id: 5, name: "ÇAY", price: "20", category: "sıcak-icecekler", img: "https://odulbufe.com/wp-content/uploads/2021/08/Çay.jpg" },
-    { id: 6, name: "CAM KASE TATLI", price: "65", category: "tatlı", img: "https://images.deliveryhero.io/image/fd-tr/Products/72760080.jpg??width=400" },
-    { id: 7, name: "PLASTİK KASE TATLI", price: "60", category: "tatlı", img: "https://images.deliveryhero.io/image/fd-tr/Products/72760088.jpg??width=400" },
-    { id: 8, name: "LATTE MACCHIATO", price: "65-85", category: "sıcak-icecekler", img: "https://www.starbucksathome.com/tr/sites/default/files/2022-04/10032021_LATTE_MACCHIATO_LS-min.png" },
-    { id: 9, name: "200 ML FUJİ KOLA", price: "40", category: "soguk-icecek", img: "https://cdn03.ciceksepeti.com/cicek/kc3715063-1/L/coca-cola-fuji-200ml---24-lu--kc3715063-1-520d93576fb34643b0bb46adf207bb96.jpg" },
-    { id: 10, name: "330 ML KUTU KOLA", price: "55", category: "soguk-icecek", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj2Mo_bdl3FrMSjb7wByRFcS0o4ZnV3rLkAA&s" },
-    { id: 11, name: "330 ML KUTU FANTA", price: "55", category: "soguk-icecek", img: "https://www.cinarcafeverestaurant.com/wp-content/uploads/2024/04/fanta-330ml.jpg" },
-    { id: 12, name: "AVŞAR KARADUT", price: "15", category: "soguk-icecek", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToibEcA7IH7Bm9oF30DwmhI4Mtam2LK6Hmrg&s" },
-    { id: 13, name: "AVŞAR MANGO", price: "15", category: "soguk-icecek", img: "https://ardenmarket.com.tr/media/catalog/product/cache/c29f40cd0751e4f0d02f666b30317d7d/a/v/avsar-soda-mango.jpg" },
-    { id: 14, name: "AVŞAR YEŞİL ELMA", price: "15", category: "soguk-icecek", img: "https://static.ticimax.cloud/62343/uploads/urunresimleri/buyuk/avsar-yesil-elma-aromali-200ml-eeaf46.jpg" },
-    { id: 15, name: "200 ML BEYPAZARI SODA", price: "15", category: "soguk-icecek", img: "https://www.gurmelon.com/587-large_default/beypazari-dogal-maden-suyu-200-ml.jpg" },
-    { id: 16, name: "200 ML FUJİ ÇAMLICA GAZOZ", price: "25", category: "soguk-icecek", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt1H-ll8ZRHdL0ejKyDY9uma3ne7XtVtDmgQ&s" },
-    { id: 17, name: "250 ML FUJİ NİĞDE GAZOZU", price: "30", category: "soguk-icecek", img: "https://tasomarket.com/files/products/nigde-gazozu-cam-200-ml-cf80.png" },
-    { id: 18, name: "PET SU", price: "15", category: "soguk-icecek", img: "https://aquamizu.com.tr/wp-content/uploads/2023/03/f985fe36-6811-46e0-85f9-3075e1f7914f.jpg" },
-    { id: 19, name: "1,5 LİTRE PET SU", price: "30", category: "soguk-icecek", img: "https://www.canpetplastik.com.tr/urunler/image/cache/catalog/product/CS28.018-1%20,5LT-1000x1000h.jpg" },
-    { id: 20, name: "200 ML KUTU MEYVE SUYU", price: "45", category: "soguk-icecek", img: "https://istekirtasiye.com/media/14702/catalog/49785-1.jpg" },
-    { id: 21, name: "330 ML CAPPY PORTAKAL", price: "55", category: "soguk-icecek", img: "https://images.migrosone.com/sanalmarket/product/08020100/08020100_1-aaf163-1650x1650.jpg" },
-  ];
+  <script>
+    const menuData = [
+      { id: 1, name: "KÜÇÜK BOY ESPRESSO", price: 60, category: "sıcak-icecekler", img:"https://i.hizliresim.com/wkm06gx.jpg" },
+      { id: 2, name: "ORTA BOY ESPRESSO", price: 80, category: "sıcak-icecekler", img:"https://i.hizliresim.com/wkm06gx.jpg" },
+      { id: 3, name: "BÜYÜK BOY ESPRESSO", price: 100, category: "sıcak-icecekler", img:"https://i.hizliresim.com/wkm06gx.jpg" },
+      { id: 4, name: "VİENNA", price: 130, category: "sıcak-icecekler", img:"https://i.hizliresim.com/xt0ffu9.jpg" },
+      { id: 5, name: "FİLİTRE KAHVE", price: 90, category: "sıcak-icecekler", img:"https://i.hizliresim.com/ytzssfz.jpg" },
+      { id: 6, name: "AMERİKANO", price: 120, category: "sıcak-icecekler", img:"https://i.hizliresim.com/ytzssfz.jpg" },
+      { id: 7, name: "BADEM SÜTÜ", price: 130, category: "soguk-icecekler", img:"https://i.hizliresim.com/ucqv9fn.jpg" },
+      { id: 8, name: "SOĞUK SÜT", price: 120, category: "soguk-icecekler", img:"https://i.hizliresim.com/ucqv9fn.jpg" },
+      { id: 9, name: "VANİLYALI DONDURMA", price: 140, category: "tatlı", img:"https://i.hizliresim.com/yb7ahxf.jpg" },
+      { id: 10, name: "FINDIKLI DONDURMA", price: 150, category: "tatlı", img:"https://i.hizliresim.com/yb7ahxf.jpg" },
+      { id: 11, name: "KAKAOLU DONDURMA", price: 160, category: "tatlı", img:"https://i.hizliresim.com/yb7ahxf.jpg" },
+      { id: 12, name: "KÜÇÜK BOY KAHVE SÜTÜ", price: 70, category: "sıcak-icecekler", img:"https://i.hizliresim.com/wkm06gx.jpg" }
+    ];
 
-  const menuContainer = document.getElementById("menu");
-  const filterButtons = document.querySelectorAll(".filter-btn");
+    const menuContainer = document.getElementById("menu");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const orderToggleBtn = document.getElementById("order-toggle");
+    const orderPanel = document.getElementById("order-panel");
+    const orderList = document.getElementById("order-list");
+    const toplamFiyatEl = document.getElementById("toplam-fiyat");
+    const clearOrderBtn = document.getElementById("clear-order");
+    const placeOrderBtn = document.getElementById("place-order");
+    const masaSecimi = document.getElementById("masa-secimi");
 
-  function renderMenuItems(category) {
-    // Menü temizlenir
-    menuContainer.innerHTML = "";
+    let currentCategory = "all";
+    let order = [];
 
-    // Seçilen kategoriye göre filtreleme
-    const filteredMenu = category === "all"
-      ? menuData
-      : menuData.filter(item => item.category === category);
+    function renderMenu() {
+      menuContainer.innerHTML = "";
+      const filtered = currentCategory === "all"
+        ? menuData
+        : menuData.filter(item => item.category === currentCategory);
 
-    // Her öğe için HTML oluşturulup DOM'a eklenir
-    filteredMenu.forEach(item => {
-      const menuItem = document.createElement("div");
-      menuItem.classList.add("item");
+      filtered.forEach(item => {
+        const div = document.createElement("div");
+        div.classList.add("item");
+        div.innerHTML = `
+          <img src="${item.img}" alt="${item.name}" />
+          <h3>${item.name}</h3>
+          <p>${item.price}₺</p>
+          <button class="add-to-order" data-id="${item.id}">Sepete Ekle</button>
+        `;
+        menuContainer.appendChild(div);
+      });
+    }
 
-      menuItem.innerHTML = `
-        <img src="${item.img}" alt="${item.name}" />
-        <h3>${item.name}</h3>
-        <p>${item.price} ₺</p>
-      `;
+    function renderOrder() {
+      if(order.length === 0) {
+        orderList.textContent = "Sepet boş.";
+        toplamFiyatEl.textContent = "0";
+        return;
+      }
 
-      menuContainer.appendChild(menuItem);
+      orderList.innerHTML = "";
+      let total = 0;
+
+      order.forEach(product => {
+        total += product.price * product.adet;
+        const div = document.createElement("div");
+        div.classList.add("product-item");
+        div.innerHTML = `
+          ${product.name} x ${product.adet} 
+          <span>${product.price * product.adet}₺</span>
+          <button data-id="${product.id}">×</button>
+        `;
+        orderList.appendChild(div);
+      });
+
+      toplamFiyatEl.textContent = total.toString();
+    }
+
+    function addToOrder(id) {
+      const product = menuData.find(p => p.id === id);
+      if(!product) return;
+
+      const existing = order.find(p => p.id === id);
+      if(existing) {
+        existing.adet++;
+      } else {
+        order.push({...product, adet:1});
+      }
+      renderOrder();
+    }
+
+    function removeFromOrder(id) {
+      order = order.filter(p => p.id !== id);
+      renderOrder();
+    }
+
+    // Event Listeners
+    filterButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentCategory = btn.getAttribute("data-category");
+        renderMenu();
+      });
     });
-  }
 
-  // Sayfa yüklendiğinde tüm ürünleri göster
-  renderMenuItems("all");
-
-  // Butonlara tıklanma olaylarını tanımla
-  filterButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      // Aktif butonu değiştir
-      filterButtons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      // Seçilen kategoriye göre filtrele
-      const category = btn.getAttribute("data-category");
-      renderMenuItems(category);
+    menuContainer.addEventListener("click", (e) => {
+      if(e.target.classList.contains("add-to-order")) {
+        const id = parseInt(e.target.getAttribute("data-id"));
+        addToOrder(id);
+      }
     });
-  });
-</script>
 
+    orderList.addEventListener("click", (e) => {
+      if(e.target.tagName === "BUTTON") {
+        const id = parseInt(e.target.getAttribute("data-id"));
+        removeFromOrder(id);
+      }
+    });
+
+    orderToggleBtn.addEventListener("click", () => {
+      if(orderPanel.style.display === "block") {
+        orderPanel.style.display = "none";
+      } else {
+        orderPanel.style.display = "block";
+      }
+    });
+
+    clearOrderBtn.addEventListener("click", () => {
+      order = [];
+      renderOrder();
+    });
+
+    placeOrderBtn.addEventListener("click", () => {
+      if(order.length === 0) {
+        alert("Lütfen önce sipariş ekleyin!");
+        return;
+      }
+      if(!masaSecimi.value) {
+        alert("Lütfen masa seçiniz!");
+        return;
+      }
+
+      // Basit sipariş özeti
+      let siparisDetayi = `Sipariş Verildi!\nMasa: ${masaSecimi.value}\n\nSiparişler:\n`;
+      order.forEach(p => {
+        siparisDetayi += `${p.name} x ${p.adet} = ${p.price * p.adet}₺\n`;
+      });
+      siparisDetayi += `Toplam: ${toplamFiyatEl.textContent}₺`;
+
+      alert(siparisDetayi);
+      order = [];
+      masaSecimi.value = "";
+      renderOrder();
+      orderPanel.style.display = "none";
+    });
+
+    renderMenu();
+    renderOrder();
+  </script>
 </body>
 </html>
